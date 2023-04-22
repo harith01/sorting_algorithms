@@ -3,6 +3,12 @@
 #include <stdbool.h>
 #include <stddef.h>
 
+/**
+ * bubble_sort - Implements the bubble sort algorithm
+ * @array: The array to sort
+ * @size: The sixe of the array
+ * Return: Nothing
+ */
 void bubble_sort(int *array, size_t size)
 {
 	size_t i, j;
@@ -25,7 +31,12 @@ void bubble_sort(int *array, size_t size)
 	}
 }
 
-
+/**
+ * swap - Swap two integers
+ * @a: The first integer
+ * @b: The second integer
+ * Return: Nothing
+ */
 void swap(int *a, int *b)
 {
 	int tmp = *a;
