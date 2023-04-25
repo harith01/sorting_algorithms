@@ -10,14 +10,14 @@ void quick_sort(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
 		return;
-	
+
 	qs(array, 0, size - 1, size);
 }
 
 
 /**
  * partition - Partitions an array
- * @array - The array to be partitioned
+ * @array: The array to be partitioned
  * @lo: lowest index of the array
  * @hi: highest index of the array
  * @size: size of the array
@@ -30,18 +30,24 @@ int partition(int *array, int lo, int hi, size_t size)
 	int p_index = lo - 1;
 	int i;
 
-	for (i = lo; i <= hi - 1; i++)
+	for (i = lo; i <= hi; i++)
 	{
-		if (array[i] <= pivot)
+		if (array[i] < pivot)
 		{
 			p_index++;
-			swap(&array[i], &array[p_index]);
+			if (p_index != i)
+			{
+				swap(&array[i], &array[p_index]);
+				print_array(array, size);
+			}
 		}
 	}
-	p_index++;
-	swap(&array[hi], &array[p_index]);
-	print_array(array, size);
-	return (p_index);
+	if (array[hi] < array[p_index + 1])
+	{
+		swap(&array[hi], &array[p_index + 1]);
+		print_array(array, size);
+	}
+	return (p_index + 1);
 }
 
 
@@ -60,7 +66,7 @@ void qs(int *array, int lo, int hi, size_t size)
 
 	if (lo > hi)
 		return;
-	
+
 	p_index = partition(array, lo, hi, size);
 	qs(array, lo, p_index - 1, size);
 	qs(array, p_index + 1, hi, size);
