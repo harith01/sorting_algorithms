@@ -22,8 +22,8 @@ void counting_sort(int *array, size_t size)
 	count = malloc(sizeof(int) * (k + 1));
 	if (count == NULL)
 		free(count);
-	
-	for (i = 0; i < k + 1; i++)
+
+	for (i = 0; i < k; i++)
 		count[i] = 0;
 
 	for (i = 0; i < size; i++)
@@ -31,14 +31,14 @@ void counting_sort(int *array, size_t size)
 	for (i = 1; i <= k; i++)
 		count[i] = count[i - 1] + count[i];
 	print_array(count, k + 1);
-	
+
 	count_dup = malloc(sizeof(int) * size);
 	if (count_dup == NULL)
 		free(count_dup);
-	
+
 	for (i = size - 1; (int) i >= 0; i--)
 		count_dup[--count[array[i]]] = array[i];
-	
+
 	for (i = 0; i < size; i++)
 		array[i] = count_dup[i];
 	free(count);
