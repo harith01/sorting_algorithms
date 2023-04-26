@@ -41,5 +41,6 @@ void counting_sort(int *array, size_t size)
 	
 	for (i = 0; i < size; i++)
 		array[i] = count_dup[i];
-
+	free(count);
+	free(count_dup);
 }
