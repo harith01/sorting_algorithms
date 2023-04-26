@@ -12,6 +12,9 @@ void counting_sort(int *array, size_t size)
 	int *count, *count_dup;
 	size_t i, k;
 
+	if (array == NULL || size < 2)
+		return;
+
 	k = array[0];
 	for (i = 1; i < size; i++)
 	{
