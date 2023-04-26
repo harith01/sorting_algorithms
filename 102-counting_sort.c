@@ -28,7 +28,7 @@ void counting_sort(int *array, size_t size)
 
 	for (i = 0; i < size; i++)
 		count[array[i]]++;
-	for (i = 1; i < k + 1; i++)
+	for (i = 1; i <= k; i++)
 		count[i] = count[i - 1] + count[i];
 	print_array(count, k + 1);
 	
