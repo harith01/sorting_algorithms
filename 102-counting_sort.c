@@ -32,7 +32,7 @@ void counting_sort(int *array, size_t size)
 		count[i] = count[i - 1] + count[i];
 	print_array(count, k + 1);
 	
-	count_dup = malloc(sizeof(int) * (k + 1));
+	count_dup = malloc(sizeof(int) * size);
 	if (count_dup == NULL)
 		free(count_dup);
 	
